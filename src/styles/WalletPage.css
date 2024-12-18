@@ -1,0 +1,566 @@
+.wallet-main-page {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(18, 18, 18, 1);
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+
+
+.wallet-main-page-overview-container {
+  background-color: rgba(28, 28, 30, 1);
+  border-radius: 15px;
+  padding: 15px 15px;
+  margin: 10px 15px;
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.wallet-main-page-overview-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.wallet-main-page-balance-info {
+  display: flex;
+  flex-direction: column;
+  color: #ffffff;
+}
+
+.wallet-main-page-balance-label {
+  font-size: 16px;
+  color: #888888;
+}
+
+.wallet-main-page-balance-total {
+  font-size: 28px;
+  font-weight: bold;
+  color: #ffffff;
+}
+
+.wallet-main-page-add-button {
+  background-color: #444444;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.wallet-main-page-add-icon {
+  width: 40px;
+  height: 40px;
+}
+
+.wallet-main-page-overview-scale {
+  display: flex;
+  position: relative;
+  height: 15px;
+  margin-top: 15px;
+  background-color: #444;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.wallet-main-page-scale-finances {
+  background-color: #4a90e2;
+  height: 100%;
+  position: absolute;
+  left: 0;
+}
+
+.wallet-main-page-scale-savings {
+  background-color: #66cc66;
+  height: 100%;
+  position: absolute;
+}
+
+.wallet-main-page-scale-debts {
+  background-color: #ff6666;
+  height: 100%;
+  position: absolute;
+}
+
+.wallet-main-page-overview-legend {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.wallet-main-page-legend-item {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  color: #ffffff;
+}
+
+.wallet-main-page-legend-color {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin-right: 5px;
+}
+
+.wallet-main-page-legend-color.wallet-main-page-finances {
+  background-color: #4a90e2;
+}
+
+.wallet-main-page-legend-color.wallet-main-page-savings {
+  background-color: #66cc66;
+}
+
+.wallet-main-page-legend-color.wallet-main-page-debts {
+  background-color: #ff6666;
+}
+
+
+
+
+.wallet-accounts-summary {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  margin-top: -20px; /* Добавляем отступ сверху */
+  color: #ffffff;
+  font-size: 25px;
+  width: 100%; /* Текст занимает всю ширину экрана */
+  margin-bottom: 5px;
+}
+
+.accounts-label {
+  font-size: 25px;
+  color: white;
+  margin-bottom: 5px;
+}
+
+.accounts-amount {
+  font-size: 25px;
+  color: green;
+  margin-bottom: 5px;
+
+}
+
+.savings-header {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  margin-top: 20px; /* Добавляем отступ сверху */
+  color: #ffffff;
+  font-size: 25px;
+  width: 100%; /* Текст занимает всю ширину экрана */
+  margin-bottom: 5px;
+}
+
+
+.savings-label {
+  margin-left: 0px; /* Отступ слева */
+}
+
+.savings-amount {
+  margin-right: 0px; /* Отступ справа */
+  font-size: 25px;
+  color: green;
+}
+
+.scrollable-area {
+  overflow-y: scroll;
+  max-height: calc(100vh - 220px);/* Ограничиваем высоту */
+  background: transparent;
+  height: auto;
+  padding-top: 30px;
+  padding: 15px;
+  position: relative;
+  background-color: transparent;
+}
+
+.scrollable-area::-webkit-scrollbar {
+  display: none; /* Для Chrome, Safari и Edge */
+}
+
+.account-container {
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(28, 28, 30, 1);
+  border-radius: 15px;
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.wallet-account-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 13px;
+  padding-bottom: 13px;
+  position: relative; /* Для точного позиционирования дочерних элементов */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  margin: 0 15px; /* Отступы слева и справа */
+}
+
+/* Убираем нижнюю границу для последнего элемента */
+.wallet-account-item:last-child {
+  border-bottom: none;
+}
+
+.wallet-account-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 12px;
+}
+
+.wallet-account-icon img {
+  width: 60%;
+  height: auto;
+}
+
+.wallet-account-details {
+  flex: 1;
+  margin-left: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.wallet-account-name {
+  font-size: 16px;
+  font-weight: 600;
+  color: white;
+}
+
+.wallet-account-percentage {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.wallet-account-balance {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  right: 0px;
+}
+
+.wallet-account-main-amount {
+  font-size: 20px;
+  font-weight: 600;
+  color: white;
+}
+
+.wallet-account-cents {
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.wallet-account-menu-icon {
+  width: 30px;
+  height: 30px;
+  margin-left: auto; /* Автоматически сдвигает элемент вправо */
+  cursor: pointer;
+}
+
+.spacer-element {
+  height: 20px; /* Высота для увеличения прокрутки */
+  background: transparent; /* Прозрачный фон */
+}
+
+.wallet-main-page-bottom-container {
+  box-sizing: content-box;
+  background-color: rgba(28, 28, 28, 100);
+  color: #ffffff;
+  text-align: center;
+  height: 80px;
+  width: 100%;
+  display: flex;
+  justify-content: center; /* Выровняем кнопки по центру */
+  position: fixed;
+  border-top: 1px solid rgba(48, 48,48, 100);
+  bottom: 0;
+  border-radius: 20px 20px 0 0; /* Закругляем только верхние углы */
+}
+
+.wallet-main-page-bottom-image {
+  box-sizing: content-box;
+  width: 40px;
+  height: auto;
+  margin: 0 auto; /* Сдвигаем все изображения на 10 пикселей влево */
+}
+
+
+
+
+.wallet-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+
+
+.wallet-modal-menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.wallet-modal-item {
+  display: flex;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid #444;
+  cursor: pointer;
+}
+
+.wallet-modal-item img {
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+}
+
+.wallet-modal-item.delete {
+  color: red;
+}
+
+@keyframes modalSlideIn {
+  from {
+    opacity: 0;
+    transform: translate(-100%, -10%);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-100%, 0);
+  }
+}
+
+/* Анимация плавного закрытия */
+@keyframes modalSlideOut {
+  from {
+    opacity: 1;
+    transform: translate(-100%, 0);
+  }
+  to {
+    opacity: 0;
+    transform: translate(-100%, -10%);
+  }
+}
+
+/* Анимация для открытия */
+.wallet-modal-content.animating {
+  animation: modalSlideIn 0.3s ease;
+}
+
+/* Анимация для закрытия */
+.wallet-modal-content.closing {
+  animation: modalSlideOut 0.2s ease forwards; /* forwards сохраняет конечное состояние */
+}
+
+
+
+/* Основное модальное окно */
+.wallet-modal-content {
+  background-color: #333;
+  color: white;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transform-origin: top right;
+  width: 220px;
+}
+
+.delete-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Анимация исчезновения */
+@keyframes slideOut {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+}
+
+/* Контент модального окна */
+.delete-modal-content {
+  background-color: rgba(18, 18, 18, 1);
+  border-radius: 15px;
+  width: 70%;
+  max-width: 400px;
+  padding: 10px;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  animation: slideIn 0.3s ease forwards; /* Анимация открытия */
+}
+
+/* Анимация закрытия */
+.delete-modal-content.closing {
+  animation: slideOut 0.3s ease forwards; /* Анимация исчезновения */
+}
+
+.delete-modal-icon {
+  width: 70px;
+  height: 70px;
+  margin-bottom: -15px;
+}
+
+.delete-modal-text {
+  color: white;
+  font-size: 16px;
+  margin-bottom: 5px; /* Отступ между текстом и именем счета */
+}
+
+.delete-modal-account-name {
+  color: #545454;
+  font-size: 18px;
+  margin: 0; /* Убираем лишние отступы */
+  margin-bottom: 15px; /* Добавляем отступ только до кнопок */
+}
+
+.delete-modal-buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.delete-modal-cancel-button,
+.delete-modal-confirm-button {
+  border: none;
+  border-radius: 10px;
+  padding: 10px 10px;
+  font-size: 14px;
+  cursor: pointer;
+  align-items: center;
+  width: 48%;
+  justify-content: center;
+}
+
+.delete-modal-cancel-button {
+  border: 1px solid rgba(42, 42, 42, 100);
+}
+
+.delete-modal-cancel-button {
+  background-color: transparent;
+  color: white;
+}
+
+.delete-modal-confirm-button {
+  background: transparent;
+  border: 1px solid rgba(220, 78, 78, 1);
+  color: rgba(220, 78, 78, 1);
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.delete-modal-confirm-button img {
+  width: 16px;
+  height: 16px;
+}
+
+
+
+
+
+/* Overlay для затемнения фона */
+.success-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6); /* Полупрозрачный черный фон */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* Уровень слоя */
+}
+
+@keyframes slide-in {
+  from {
+    transform: scale(0.8); /* Уменьшенный размер */
+    opacity: 0; /* Прозрачность */
+  }
+  to {
+    transform: scale(1); /* Обычный размер */
+    opacity: 1; /* Полная видимость */
+  }
+}
+
+/* Анимация исчезновения */
+@keyframes slide-out {
+  from {
+    transform: scale(1); /* Обычный размер */
+    opacity: 1; /* Полная видимость */
+  }
+  to {
+    transform: scale(0.8); /* Уменьшенный размер */
+    opacity: 0; /* Прозрачность */
+  }
+}
+
+/* Контейнер для модального окна */
+.success-modal-content {
+  background-color: rgba(18, 18, 18, 1); /* Темный фон */
+  border-radius: 15px; /* Закругленные углы */
+  width: 60%; /* Ширина окна */
+  max-width: 300px; /* Максимальная ширина */
+  padding: 20px; /* Внутренние отступы */
+  text-align: center; /* Центровка текста */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Тень */
+  animation: slide-in 0.3s ease forwards; /* Анимация появления */
+}
+
+/* Анимация закрытия */
+.success-modal-content.closing {
+  animation: slide-out 0.3s ease forwards; /* Анимация исчезновения */
+}
+
+/* Иконка в центре */
+.success-modal-icon {
+  width: 70px; /* Размер иконки */
+  height: 70px;
+  margin-bottom: 15px; /* Отступ от текста */
+}
+
+/* Текст в модальном окне */
+.success-modal-text {
+  color: white; /* Белый текст */
+  font-size: 16px; /* Размер текста */
+  margin: 0; /* Убираем отступы */
+}

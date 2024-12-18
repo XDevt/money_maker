@@ -1,0 +1,186 @@
+add-new-categorie-page {
+  overflow: hidden;
+}
+
+.add-new-categorie-header {
+  display: flex;
+  justify-content: center; /* Центрируем содержимое по горизонтали */
+  align-items: center; /* Центрируем по вертикали */
+  position: relative;
+
+}
+
+.add-new-categorie-top-left-image {
+  position: absolute;
+  left: 10px; /* Изображение будет слева */
+  width: 45px; /* Размер изображения */
+  height: 45px;
+  cursor: pointer;
+}
+
+.add-new-categorie-text {
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+}
+
+
+.add-new-categorie-account-name-account {
+  width: calc( 100% - 40px); /* Устанавливаем ширину контейнера */
+  height: 100px; /* Увеличиваем высоту контейнера, чтобы вместить текстовое поле */
+  top: 70px; /* Отступ сверху */
+  margin-left: 20px; /* Добавляем отступ слева */
+  display: flex;
+  flex-direction: column; /* Располагаем элементы вертикально */
+  justify-content: flex-start; /* Выравниваем элементы по верхней границе */
+  align-items: flex-start; /* Выравниваем элементы по левой стороне */
+  box-sizing: border-box; /* Учитываем отступы и обводку в ширине */
+  position: relative;
+}
+
+.add-new-categorie-account-name {
+  color: white; /* Цвет текста */
+  font-size: 18px; /* Размер текста */
+  margin-bottom: 5px; /* Отступ снизу для текстового поля */
+  margin-top: 5px;
+  margin-left: 5px;
+  text-align: left; /* Выравниваем текст по левому краю */
+  width: 100%; /* Убедимся, что текст занимает всю ширину контейнера */
+  font-weight: 500;
+}
+
+
+.add-new-categorie-input-account-name {
+  width: 100%; /* Поле ввода занимает всю ширину контейнера */
+  padding: 10px; /* Внутренний отступ */
+  background-color: rgba(28, 28, 30, 1); /* Темный фон */
+  color: white; /* Цвет текста */
+  border: 1px solid rgba(28, 28, 30, 1); /* Обводка */
+  border-radius: 10px; /* Закругление краев */
+  font-size: 16px; /* Размер текста */
+  box-sizing: border-box; /* Учитываем отступы и обводку в ширине */
+}
+
+.add-new-categorie-design {
+  border: 2px solid rgba(28, 28, 30, 1);
+  width: calc(100% - 40px);
+  margin-left: 20px;
+  border-radius: 15px;
+  padding: 10px;
+  box-sizing: border-box;
+  display: flex;
+  background: rgba(28, 28, 30, 1);
+  justify-content: space-between; /* Распределяем элементы */
+  align-items: center; /* Центрируем элементы по вертикали */
+  cursor: pointer;
+  position: relative;
+  margin-top: 60px;
+}
+
+
+
+
+
+.add-new-categorie-account-type {
+  border: 2px solid #666666;
+  width: 95%;
+  margin-top: 10px;
+  margin-left: 10px;
+  border-radius: 15px;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.add-new-categorie-account-type-header {
+  color: white;
+  font-size: 18px;
+  margin-bottom: 10px;
+  margin-left: 5px;
+  font-weight: 500;
+}
+
+.add-new-categorie-account-type-option {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.add-new-categorie-account-type-icon {
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+.add-new-categorie-account-type-icon.active {
+  border: 2px solid #4A90E2; /* Можно добавить рамку для активной иконки */
+  border-radius: 50%; /* Закругление для визуального выделения */
+}
+
+.add-new-categorie-account-type span {
+  color: white; /* Цвет текста белый */
+  font-size: 18px; /* Увеличиваем размер текста */
+ /* Делаем текст жирным, если нужно */
+}
+
+
+.add-new-categorie-create-button-container {
+  display: flex;
+  justify-content: center; /* Центрируем кнопку по горизонтали */
+  align-items: center;
+  margin-top: 10px;
+}
+
+.add-new-categorie-create-button {
+  background-color: #5E73E9;
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  padding: 15px 20px;
+  margin-left: 5px;
+  border: none;
+  border-radius: 50px; /* Закругленные края */
+  cursor: pointer;
+  width: calc(100% - 40px);
+  transition: background-color 0.3s;
+}
+
+.add-new-categorie-create-button:hover {
+  background-color: rgba(65, 91, 233, 100); /* Изменение цвета при наведении */
+}
+
+.add-new-categorie-cancel-button-container {
+  display: flex;
+  justify-content: center; /* Центрируем кнопку по горизонтали */
+  align-items: center;
+  margin-top: 10px;
+}
+
+.add-new-categorie-cancel-button {
+  background-color: transparent;
+  color: #545454;
+  font-size: 18px;
+  font-weight: bold;
+  padding: 15px 20px;
+  margin-left: 5px;
+  border: 2px solid #545454;
+  border-radius: 50px; /* Закругленные края */
+  cursor: pointer;
+  width: calc(100% - 40px);
+
+  transition: background-color 0.3s;
+}
+
+.add-new-categorie-cancel-button:hover {
+  background-color: #333333; /* Изменение цвета при наведении */
+}
+
+
+.add-new-categorie-account-value {
+  width: calc(100% - 40px);
+  margin-left: 20px;
+  display: flex;
+  flex-direction: column; /* Текст над полями */
+  gap: 5px; /* Отступ между заголовком и контейнерами */
+}

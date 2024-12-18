@@ -1,0 +1,546 @@
+.categories-statistic-page-container {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(18, 18, 18, 1);
+  overflow-y: auto; /* Включаем прокрутку */
+  scrollbar-width: none; /* Для Firefox */
+  overflow-x: hidden; /* Включаем прокрутку */
+}
+
+.categories-statistic-page-container::-webkit-scrollbar {
+  display: none; /* Для Chrome, Safari и Edge */
+}
+
+.categories-statistic-header {
+  position: fixed; /* Фиксируем контейнер сверху */
+  top: 0;
+  left: 0;
+  width: 100%; /* Растягиваем на всю ширину экрана */
+  height: 60px; /* Высота контейнера */
+  background-color: rgba(28, 28, 30, 1); /* Цвет фона */
+  display: flex;
+  align-items: center; /* Выравниваем по вертикали */
+  justify-content: space-between; /* Оставляем место между фото и текстом */
+  padding: 0 20px; /* Отступы слева и справа */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5); /* Тень под контейнером */
+  z-index: 100; /* Поднимаем над другим контентом */
+  border-radius: 0 0 15px 15px; /* Закругляем только нижние углы */
+}
+
+.categories-statistic-page-top-left-image {
+  width: 24px; /* Ширина иконки */
+  height: 24px; /* Высота иконки */
+  cursor: pointer; /* Курсор при наведении */
+}
+
+.categories-statistic-title {
+  font-weight: 600; /* Жирный шрифт */
+  font-size: 22px; /* Размер шрифта */
+  color: white; /* Белый цвет текста */
+  text-align: center; /* Центрируем текст */
+  flex: 1; /* Растягиваем текст по доступному пространству */
+}
+
+.categories-statistic-page-bottom-container-with-line {
+  width: 100%;
+  height: 60px;
+  display: flex; /* Flexbox для размещения элементов */
+  justify-content: space-between; /* Пространство между элементами */
+  align-items: center; /* Вертикальное выравнивание элементов */
+  padding: 0 10px; /* Отступы слева и справа */
+  top: 40px; /* Отступ сверху для разделения с предыдущим контейнером */
+  position: fixed; /* Закрепляем навигационную строку с месяцем */
+  z-index: 8;
+}
+
+.categories-statistic-page-bottom-left-photo {
+  width: 30px;
+  height: 30px; /* Закругленные края для фотографий */
+  transform: translate(-8px, 10px); /* Сдвиг фотографий влево (-10px) и вниз (10px) */
+}
+
+.categories-statistic-page-bottom-right-photo {
+  width: 30px;
+  height: 30px; /* Закругленные края для фотографий */
+  transform: translate(8px, 10px); /* Сдвиг фотографий влево (-10px) и вниз (10px) */
+}
+
+.categories-statistic-page-bottom-container-text {
+  font-size: 16px;
+  color: #ffffff;
+  font-weight: bold;
+  transform: translateY(10px); /* Сдвиг текста немного влево (-10px) и вниз (10px) */
+}
+
+.categories-statistic-page-top-right-image {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  width: 50px;
+  height: auto;
+  border-radius: 50%;
+}
+
+.categories-statistic-page-rectangle {
+  width: calc(100% - 20px);
+  height: 60px;
+  border: 2px solid rgba(28, 28, 28, 100);
+  background-color: rgba(28, 28, 28, 100);
+  margin-left: 10px;
+  border-radius: 50px;
+  position: fixed;
+  top: 110px;
+  z-index: 9;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 5px;
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.categories-statistic-page-inner-rectangle {
+  width: 47%;
+  height: 80%;
+  border-radius: 50px;
+  margin-left: 5px;
+  margin-right: 5px;
+  display: flex;
+  flex-direction: column; /* Выравниваем элементы по вертикали */
+  justify-content: center; /* Центрируем по вертикали */
+  align-items: center; /* Центрируем по горизонтали */
+  cursor: pointer;
+}
+
+.categories-statistic-page-rectangle-text {
+  color: #ffffff;
+  font-size: 20px;
+  font-weight: bold;
+  margin: 0; /* Убираем внешние отступы */
+}
+
+.categories-statistic-page-rectangle-sum {
+  font-size: 18px; /* Размер суммы */
+  font-weight: bold; /* Жирный шрифт */
+  margin-top: 5px; /* Отступ сверху */
+}
+
+
+
+
+
+/* Общий контейнер */
+.statistic-page-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  box-sizing: border-box;
+  margin-top: 10px;
+}
+
+/* Левый и правый контейнеры */
+.statistic-page-left-box,
+.statistic-page-right-box {
+  width: 50%; /* Равномерное деление на 2 части */
+  height: 80px;
+  border: 2px solid rgba(28, 28, 28, 100);
+  background-color: rgba(28, 28, 28, 100);
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 5px; /* Уменьшение внутреннего отступа */
+  box-sizing: border-box;
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+/* Заголовки */
+.statistic-page-box-header {
+  color: #545454;
+  font-size: 13px; /* Уменьшение размера */
+  text-align: center;
+  margin: 0; /* Убираем отступы */
+  margin-bottom: 5px;
+}
+
+/* Значения */
+.statistic-page-box-value {
+  color: #fff;
+  font-size: 16px; /* Немного уменьшили размер */
+  font-weight: 600;
+  margin: 0; /* Убираем отступы */
+  line-height: 1.2; /* Уменьшение расстояния между строками */
+}
+
+
+
+
+
+
+
+
+.comparison-title {
+  font-size: 16px; /* Размер текста */
+  color: white; /* Белый цвет */
+  text-align: left; /* Выровнять по левому краю */
+  margin-bottom: 10px; /* Отступ снизу */
+
+}
+/* Общий контейнер */
+.statistic-page-new-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+/* Левый контейнер */
+.statistic-page-new-left-box,
+.statistic-page-new-right-box {
+  width: 50%; /* Разделение пополам */
+  height: 80px; /* Высота контейнера */
+  padding: 10px;
+  background-color: rgba(28, 28, 28, 100); /* Фон для неактивного контейнера */
+  cursor: pointer;
+  text-align: center;
+  box-sizing: border-box;
+  transition: all 0.3s ease; /* Плавный переход */
+  border-bottom: 3px solid #2A2A2A; /* Подсветка синей линией */
+}
+
+.statistic-page-new-left-box {
+  border-radius: 15px 0 0 0;
+}
+
+.statistic-page-new-right-box {
+  border-radius: 0 15px 0 0;
+}
+
+/* Для активного контейнера */
+.statistic-page-new-left-box.active,
+.statistic-page-new-right-box.active {
+  color: #fff; /* Белый текст */
+  border-bottom: 3px solid #5E73E9; /* Подсветка синей линией */
+}
+
+/* Если активен правый контейнер (для расходных данных) */
+.statistic-page-new-right-box.active {
+  border-bottom: 3px solid #DC4E4E; /* Красный бордер для правого контейнера */
+}
+
+/* Заголовки */
+.statistic-page-new-box-header {
+  color: #fff; /* Белый цвет текста */
+  font-size: 13px;
+  margin-bottom: 5px; /* Отступ между заголовком и суммой */
+}
+
+/* Значения */
+.statistic-page-new-box-value {
+  color: #fff; /* Белый цвет текста */
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 5px; /* Отступ между значением и заголовком */
+
+}
+
+/* Для активного левого контейнера */
+.statistic-page-new-left-box .statistic-page-new-box-value {
+  color: #5E73E9; /* Синий цвет для активного левого контейнера */
+}
+
+/* Для активного правого контейнера */
+.statistic-page-new-right-box .statistic-page-new-box-value {
+  color: #DC4E4E; /* Красный цвет для активного правого контейнера */
+}
+
+
+
+
+
+
+
+
+
+
+.statistic-page-chart-container {
+  width: 100%; /* Устанавливаем ширину на 100% */
+  overflow: hidden; /* Скрываем выход за границы контейнера */
+  padding: 10px;
+  border-radius: 20px;
+  background-color: rgba(28, 28, 28, 100);
+  border: 2px solid rgba(28, 28, 28, 100);
+  height: 300px; /* Высота контейнера */
+  box-sizing: border-box;
+  margin-top: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+
+}
+
+.statistic-page-chart-container canvas {
+  pointer-events: none; /* Отключаем любые взаимодействия с графиком */
+}
+
+
+
+
+.statistic-page-scrollable-area {
+  overflow-y: scroll;
+  max-height: calc(100vh - 160px);/* Ограничиваем высоту */
+  background: transparent;
+  height: auto;
+  padding-top: 30px;
+  margin-top: 160px;
+  position: relative;
+  background-color: transparent;
+  margin-left: 15px;
+  width: calc(100% - 30px);
+}
+
+.statistic-page-scrollable-area::-webkit-scrollbar {
+  display: none; /* Для Chrome, Safari и Edge */
+}
+
+
+.statistic-page-doughnut-chart-container {
+  position: relative;
+  width: 100%; /* Делаем контейнер адаптивным */
+  background-color: rgba(18, 18, 18, 100);
+  border-radius: 20px;
+  margin-bottom: 20px;
+
+  margin-top: 10px;
+}
+
+/* Центрирование суммы в круге */
+.wallet-view-center-amount {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  font-size: 24px;
+  font-weight: bold;
+  color: white;
+}
+
+/* Контейнер для категорий (внутри общего контейнера) */
+.statistic-page-category-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 13px;
+  padding-bottom: 13px;
+  position: relative; /* Для точного позиционирования дочерних элементов */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  margin: 0 15px; /* Отступы слева и справа */
+}
+
+/* Убираем нижнюю границу для последнего элемента */
+.statistic-page-category-item:last-child {
+  border-bottom: none;
+}
+
+/* Иконка категории */
+.statistic-page-category-icon {
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;
+}
+
+/* Детали категории */
+.statistic-page-category-details {
+  flex: 1;
+}
+
+/* Заголовок категории (название и сумма) */
+.statistic-page-category-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Название категории */
+.statistic-page-category-name {
+  font-size: 18px;
+  color: white;
+  margin: 0;
+  margin-left: 5px;
+}
+
+/* Сумма */
+.statistic-page-category-amount {
+  font-size: 18px; /* Увеличиваем размер суммы до уровня с названием */
+  color: #bbb;
+  margin: 0;
+  right: 0px;
+}
+
+/* Контейнер для прогресс-бара */
+.statistic-page-progress-bar-container {
+  background-color: #666;
+  height: 8px;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-top: 5px;
+  margin-left: 5px;
+}
+
+/* Прогресс-бар */
+.statistic-page-progress-bar {
+  height: 100%;
+  transition: width 0.3s;
+}
+
+/* Процент */
+.statistic-page-category-percentage {
+  font-size: 16px;
+  color: white;
+  margin-left: 10px;
+  transform: translateY(+13px);
+}
+
+
+.statistic-page-category-account-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+}
+
+.statistic-page-category-account-icon img {
+  width: 60%;
+  height: auto;
+}
+
+
+
+
+
+.statistic-page-bottom-new-container {
+  width: 100%; /* Устанавливаем ширину на 100% */
+  background-color: rgba(28, 28, 28, 100); /* Фон указанного цвета */
+/* Закругление нижнего правого угла */
+  box-sizing: border-box; /* Учитываем отступы внутри ширины */
+  height: 120px;
+  padding: 0;
+}
+
+
+
+
+
+.additional-container {
+  width: 100%;
+
+  display: flex;
+  justify-content: center; /* Центрируем содержимое */
+  background-color: rgba(28, 28, 28, 100);
+  border-bottom-left-radius: 20px; /* Закругление нижнего левого угла */
+  border-bottom-right-radius: 20px;
+  padding: 15px;
+}
+
+.inner-container {
+  display: flex;
+  align-items: center;
+  width: 100%; /* Ширина внутреннего контейнера */
+  padding: 15px;
+  border: 2px solid #303030; /* Серая обводка */
+  border-radius: 15px; /* Закруглённые углы */
+  background-color: rgba(28, 28, 28, 100); /* Фон (можете настроить) */
+}
+
+.inner-container-left-image {
+  width: 40px; /* Ширина изображения */
+  height: 40px; /* Высота изображения */
+  border-radius: 5px; /* Закруглённые углы изображения */
+  object-fit: cover; /* Масштабирование изображения без искажений */
+}
+
+.inner-container-text {
+  color: white; /* Цвет текста */
+  font-size: 14px; /* Размер шрифта */
+  line-height: 1.5; /* Межстрочный интервал */
+  text-align: left; /* Текст выровнен по левому краю */
+  margin-left: 10px;
+}
+
+
+
+
+
+.statistic-page-single-container {
+
+  width: 100%; /* Устанавливаем ширину на 100% */
+  background-color: rgba(28, 28, 28, 100); /* Фон указанного цвета */
+/* Закругление нижнего правого угла */
+  box-sizing: border-box; /* Учитываем отступы внутри ширины */
+  height: 120px;
+  padding: 0;
+  border-radius: 0 0 15px 15px;
+}
+
+.gradient-container {
+  position: absolute;
+  width: calc(100% - 40px);
+  height: 40px; /* Высота градиента */
+  background: linear-gradient(
+    to bottom,
+    rgba(91, 198, 98, 0.2),
+    rgba(28, 28, 28, 100)
+
+  ); /* Градиент от насыщенного до прозрачного */
+  z-index: 0; /* Градиент позади графика */
+  margin-left: 20px;
+}
+
+.statistic-page-single-container > .SingleLineChart {
+  position: relative;
+  z-index: 1; /* График поверх градиента */
+}
+
+
+
+
+
+.balance-container {
+  display: flex; /* Выравнивание элементов в строку */
+  justify-content: space-between; /* Распределение текста и кнопки */
+  align-items: center; /* Центрирование по вертикали */
+  background-color: #1c1c1c; /* Тёмный фон */
+  border-radius: 15px 15px 0 0; /* Закруглённые углы */
+  padding: 15px; /* Внутренний отступ */
+}
+
+.balance-value {
+  font-size: 24px;
+  font-weight: 600;
+  color: #ffffff; /* Основной текст */
+  margin: 0; /* Убираем отступы */
+}
+
+.balance-comparison {
+  font-size: 14px;
+  color: #7a7a7a; /* Второстепенный текст */
+  margin: 5px 0 0 0; /* Отступ сверху */
+}
+
+
+
+.balance-button {
+  background-color: #5e73e9; /* Цвет кнопки */
+  color: #ffffff; /* Цвет текста */
+  border: none; /* Убираем рамки */
+  border-radius: 30px; /* Закруглённые углы кнопки */
+  padding: 10px 20px; /* Внутренние отступы кнопки */
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s; /* Плавный переход при наведении */
+}
+
+.balance-button:hover {
+  background-color: #4a5dcc; /* Изменяем цвет при наведении */
+}

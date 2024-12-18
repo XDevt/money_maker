@@ -1,0 +1,802 @@
+.transactions-main-page {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(18, 18, 18, 1);
+  overflow: hidden; /* Отключаем прокрутку для всей страницы */
+}
+
+
+.transactions-page-date-modal-window {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.transactions-page-date-modal-window-content {
+  background-color: #404040;
+  padding: 10px;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.transactions-page-date-modal-window-content p {
+  color: white;
+  text-align: center;
+  margin: 0; /* Убираем отступы вокруг текста */
+  padding-top: 10px;
+  padding-bottom: 5px;
+}
+
+.full-width-container {
+  background-color: #4a4a4a;
+  color: white;
+  padding: 5px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  line-height: 1;
+  margin: 0; /* Убираем margin у текста */
+  height: 85px;
+}
+
+.content-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 85px;
+}
+
+.center-image {
+  width: 60px; /* Настройте размер по вашему усмотрению */
+  height: 60px; /* Отступ между изображением и текстом */
+  margin-bottom: 0;
+  transform: translateY(5px);
+}
+
+.content-center p {
+  transform: translate(2px, -7px);
+
+}
+
+/* Два контейнера в ряд */
+.two-container-row {
+  display: flex;
+  gap: 10px;
+
+}
+
+.half-width-container {
+  flex: 1;
+  background-color: #4a4a4a;
+  color: white;
+  padding: 5px;
+  border-radius: 5px;
+  justify-content: center;
+  align-items: center;
+  height:85px
+}
+
+.two-container-center-image {
+  width: 60px; /* Настройте размер по вашему усмотрению */
+  height: 60px; /* Отступ между изображением и текстом */
+  margin-bottom: 0;
+
+}
+
+.two-container-content-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 85px;
+}
+
+.two-container-content-center p {
+  transform: translate(2px, -14px);
+
+}
+
+.three-container-row {
+  display: flex;
+  gap: 10px;
+}
+
+.third-width-container {
+  flex: 1;
+  background-color: #4a4a4a;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  box-sizing: border-box;
+  max-width: calc(34%); /* Учитываем отступы */
+}
+
+.transactions-page-date-modal-window-content button {
+  background-color: #4a90e2;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 15px;
+}
+
+
+
+
+
+.calendar-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5); /* Темный фон */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.calendar-modal-content {
+  background-color: #404040; /* Цвет модального окна */
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: none; /* Убираем тень */
+  margin: 0; /* Убираем внешние отступы */
+  width: calc(100% - 10px); /* Оставляем 5px отступ с каждой стороны */
+}
+
+.calendar-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 330px; /* Фиксированная высота для предотвращения прыжков */
+  background-color: #404040;
+  margin: 0;
+}
+
+.calendar-modal-title {
+  font-size: 18px;
+  font-weight: bold;
+  color: white;
+  margin: 0; /* Убираем отступы сверху и снизу */
+  padding-top: 0; /* Устанавливаем минимальный отступ сверху */
+  padding-bottom: 10px; /* Добавляем небольшой отступ снизу */
+  text-align: center;
+  align-self: flex-start; /* Притягиваем к верхней границе */
+}
+
+.modal-close-button {
+  background-color: #4a90e2;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 5px;
+  margin-top: 15px;
+  cursor: pointer;
+}
+/* Задаем фон и цвет для самого календаря */
+.react-calendar {
+  background-color: #404040 !important;
+  border: none !important;
+  border-radius: 8px !important;
+  color: white !important;
+}
+
+/* Стили для навигационных кнопок */
+.react-calendar__navigation button {
+  color: white !important;
+  background-color: #404040 !important;
+}
+
+/* Стили для ячеек с датами */
+.react-calendar__tile {
+  background-color: #404040 !important;
+  color: white !important;
+}
+
+.react-calendar__tile--now {
+  background-color: #2c2c2c !important;
+  color: white !important;
+}
+
+.react-calendar__tile--active {
+  background-color: #4a90e2 !important;
+  color: white !important;
+}
+
+/* Стили для соседних месяцев */
+.react-calendar__tile--neighboringMonth {
+  color: #757575 !important;
+  background-color: #404040 !important;
+}
+
+/* Стили для выходных */
+.react-calendar__tile--weekend {
+  color: #ff6347 !important;
+  background-color: #404040 !important;
+}
+
+/* Дополнительно можно настроить стили заголовка */
+.react-calendar__navigation__label {
+  color: white !important;
+}
+
+
+
+
+
+
+
+.transactions-page-top-container {
+  width: 100%;
+  text-align: center;
+  padding: 0px;
+  background-color: rgba(28, 28, 30, 1);;
+  height:80px;
+  color: #ffffff;
+  position: fixed; /* Закрепляем шапку */
+  top: 0;
+  z-index: 10;
+  margin-top: -10px;
+  border-radius: 0 0 15px 15px; /* Закругляем только нижние углы */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5); /* Тень под контейнером */
+}
+
+.transactions-page-top-left-image {
+  position: fixed; /* Фиксируем изображение слева */
+  top: 15px;
+  left: 15px;
+  width: 30px;
+  height: auto;
+}
+
+.transactions-page-top-right-image {
+  position: fixed; /* Фиксируем изображение справа */
+  top: 15px;
+  right: 15px;
+  width: 30px;
+  height: auto;
+}
+
+.transactions-page-balance-text {
+  font-size: 16px; /* Задаем размер текста для суммы */ /* Поднимаем надпись на 5 пикселей вверх */
+ /* Делаем текст жирным */
+  color: #7A8899; /* Белый цвет текста */
+}
+
+.transactions-page-balance-amount {
+  font-size: 30px; /* Задаем размер текста для суммы */
+  margin-top: -15px; /* Поднимаем надпись на 5 пикселей вверх */
+ /* Делаем текст жирным */
+  color: #ffffff; /* Белый цвет текста */
+}
+
+.transactions-page-rectangle {
+  width: calc(100% - 30px);
+  height: 60px;
+  border: 2px solid #666666;
+  background-color: #666666;
+  margin-left: 15px;
+  border-radius: 20px;
+  position: fixed;
+  top: 70px; /* Позиционируем чуть ниже шапки */
+  z-index: 9;
+  display: flex; /* Flexbox для выравнивания прямоугольников */
+  justify-content: space-between; /* Пространство между прямоугольниками */
+  align-items: center; /* Выравнивание по вертикали */
+  padding: 0 5px; /* Отступы по бокам */
+}
+
+.transactions-page-inner-rectangle {
+  width: 33%;
+  height: 80%;
+  border-radius: 10px;
+  margin-left: 5px;
+  margin-right: 5px;
+  display: flex; /* Flexbox для центрирования */
+  justify-content: center; /* Центрируем по горизонтали */
+  align-items: center; /* Центрируем по вертикали */
+}
+
+.transactions-page-rectangle-text {
+  color: #ffffff; /* Белый цвет текста */
+  font-size: 20px; /* Размер текста */
+  font-weight: bold; /* Жирный текст */
+}
+
+.transactions-page-bottom-container-with-line {
+  width: 100%;
+  height: 60px;
+  display: flex; /* Flexbox для размещения элементов */
+  justify-content: space-between; /* Пространство между элементами */
+  align-items: center; /* Вертикальное выравнивание элементов */
+  padding: 0 10px; /* Отступы слева и справа */
+  top: 60px; /* Отступ сверху для разделения с предыдущим контейнером */
+  position: fixed; /* Закрепляем навигационную строку с месяцем */
+  z-index: 8;
+}
+
+.transactions-page-bottom-left-photo {
+  width: 30px;
+  height: 30px; /* Закругленные края для фотографий */
+  transform: translate(-8px, 10px); /* Сдвиг фотографий влево (-10px) и вниз (10px) */
+}
+
+.transactions-page-bottom-right-photo {
+  width: 30px;
+  height: 30px; /* Закругленные края для фотографий */
+  transform: translate(8px, 10px); /* Сдвиг фотографий влево (-10px) и вниз (10px) */
+}
+
+.transactions-page-percentage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
+  color: white;
+  position: fixed;
+  top: 120px; /* Или другое значение от верхнего края */
+  left: 50%; /* Центрируем по горизонтали */
+  transform: translateX(-50%); /* Смещаем влево на половину ширины */
+}
+
+.transactions-page-percentage span {
+  margin: 0 2px; /* Добавляет отступ между элементами */
+}
+
+.transactions-page-percentage .income-percentage {
+  color: #5BC662; /* Зелёный цвет для доходов */
+}
+
+.transactions-page-percentage .expense-percentage {
+  color: #DC4E4E; /* Красный цвет для расходов */
+}
+
+
+.transactions-page-bottom-container-text {
+  font-size: 16px;
+  color: #ffffff;
+  transform: translateY(10px); /* Сдвиг текста немного влево (-10px) и вниз (10px) */
+}
+
+.bottom-container {
+  background-color: #3a3a3a;
+  color: #ffffff;
+  padding: 10px;
+  text-align: center;
+  height: 60px;
+  width: 100%;
+  display: flex;
+  justify-content: center; /* Выровняем кнопки по центру */
+  position: fixed; /* Закрепляем контейнер с кнопками */
+  bottom: 0;
+  left: 0;
+}
+
+.bottom-image {
+  width: 90px;
+  height: auto;
+  margin: 0 5px;
+  transform: translateX(-10px); /* Сдвигаем все изображения на 10 пикселей влево */
+}
+
+
+.transactions-page-scroll-container {
+  height: calc(100vh - 220px); /* Высота области с учетом фиксированных верхних и нижних блоков */
+  overflow-y: auto; /* Прокрутка по вертикали */
+  padding: 10px;
+  box-sizing: border-box;
+  margin-top: 150px;
+  scrollbar-width: none; /* Для Firefox */
+  margin-left: 10px;
+  width: calc(100% - 20px);
+}
+
+.transactions-page-scroll-container::-webkit-scrollbar {
+  display: none; /* Для Chrome, Safari и Edge */
+}
+
+.transactions-page-day-container {
+  margin-bottom: 30px; /* Отступ между днями */
+}
+
+
+
+
+
+.transactions-page-day-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Оставляем сумму справа */
+  padding: 10px 0; /* Внутренние отступы */
+  height: 40px;
+}
+
+.day-left {
+  flex-shrink: 0; /* Фиксированный размер для цифры */
+  margin-right: 10px; /* Добавляем отступ справа для текста */
+}
+
+.day-number {
+  font-size: 26px; /* Размер для цифры */
+  color: white; /* Белый цвет для цифры */
+  margin-left: 10px;
+}
+
+.day-center {
+  display: flex;
+  flex-direction: column; /* Текст располагается вертикально */
+  justify-content: flex-start; /* Прижимаем текст вверх */
+  text-align: left; /* Выравниваем текст по левому краю */
+
+}
+
+.formatted-date {
+  font-size: 20px; /* Основной размер текста для даты */
+  color: white; /* Белый цвет */
+  margin: 0; /* Убираем отступы */
+}
+
+.day-name {
+  font-size: 16px; /* Меньший размер для названия дня */
+  color: rgba(255, 255, 255, 0.6); /* Тёмный оттенок белого */
+  margin: 0; /* Убираем отступы */
+}
+
+.day-right {
+  flex-shrink: 0; /* Фиксированный размер для суммы */
+  text-align: right; /* Выравниваем сумму по правому краю */
+  margin-left: auto; /* Уводим сумму к правой границе */
+}
+
+.day-total {
+  font-size: 20px; /* Размер для суммы */
+  font-weight: bold;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+.transactions-page-list {
+  margin-top: 10px;
+  background: rgba(28, 28, 30, 1); /* Цвет фона */
+  border-radius: 15px; /* Закругление углов */
+  padding: 10px 0; /* Внутренние отступы сверху и снизу */
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+
+
+.transactions-page-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  position: relative; /* Для точного позиционирования дочерних элементов */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  margin: 0 15px; /* Отступы слева и справа */
+}
+
+.transactions-page-item:last-child {
+  border-bottom: none;
+}
+
+
+.transactions-page-item-icon img {
+  width: 40px;
+  height: auto;
+  transform: translateY(2px);
+}
+
+.transactions-page-item-details {
+  flex: 1;
+  margin-left: 10px;
+  display: flex;
+  flex-direction: column; /* Располагаем элементы вертикально */
+  justify-content: center; /* Центрируем по вертикали */
+}
+
+.transactions-page-item-category {
+  font-size: 16px;
+  color: #ffffff;
+  margin-bottom: 2px; /* Уменьшаем отступ между текстами */
+}
+
+.transactions-page-item-account {
+  font-size: 14px;
+  color: #888888;
+  margin-top: 0; /* Убираем верхний отступ */
+}
+
+.transactions-page-item-sum {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+
+
+
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+}
+
+.transactions-page-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  z-index: 1000;
+}
+
+.transactions-page-modal-content {
+  background-color: #2c2c2c;
+  width: 100%;
+  max-width: 100%;
+  padding: 10px 20px;
+  box-sizing: border-box;
+  border-radius: 0;
+  margin-top: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 1001;
+  animation: slideDown 0.2s ease forwards; /* Добавляем анимацию появления */
+}
+
+/* Применение анимации исчезновения */
+.transactions-page-modal-overlay.hide .transactions-page-modal-content {
+  animation: slideUp 0.2s ease forwards; /* Анимация для скрытия */
+}
+
+.transactions-page-modal-input {
+  width: 100%;
+  padding: 10px;
+  background-color: #2c2c2c; /* Тот же цвет, что и основной фон страницы */
+  color: #ffffff;
+  border: none;
+  border-bottom: 2px solid #4A90E2;
+  outline: none;
+  font-size: 16px;
+}
+
+
+
+
+
+
+
+
+
+
+
+.enter-transaction-edit-grid-container {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr); /* Первые два ряда по 5 колонок */
+  grid-gap: 10px;
+  padding: 10px;
+  margin-top: -40px;
+}
+
+.enter-transaction-edit-grid-item {
+  background-color: #444;
+  border: 2px solid white;
+  color: white;
+  font-size: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.enter-transaction-edit-tall-item {
+  grid-column: 5; /* Кнопка выровнена по правому краю */
+  grid-row: span 2; /* Кнопка занимает два ряда */
+  height: auto; /* Высота кнопки автоматически подстраивается под 2 ряда */
+}
+
+
+.enter-transaction-edit-modal-text-container {
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  margin-top: -31px; /* Отступ сверху для текста */
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.enter-transaction-edit-modal-text {
+  font-size: 36px;
+  color: white; /* Белый цвет текста */
+  margin-left: 10px;
+}
+
+.enter-transaction-edit-modal-input-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px; /* Отступ сверху */
+}
+
+.enter-transaction-edit-modal-input {
+  width: 90%; /* Ширина текстового поля */
+  padding: 10px;
+  border: 1px solid white; /* Белая обводка */
+  border-radius: 10px; /* Закругленные углы */
+  background-color: #444; /* Цвет фона текстового поля */
+  color: white; /* Цвет текста */
+  font-size: 16px; /* Размер текста */
+}
+
+
+
+.enter-transaction-edit-modal-top-containers {
+  display: flex;
+  justify-content: space-between;
+  padding: 0;
+  width: 100%;
+  margin-top: 0;
+}
+
+.enter-transaction-edit-container-left, .enter-transaction-edit-container-right {
+  width: 50%; /* Ограничиваем ширину каждого контейнера до 50% */
+  padding: 5px;
+  background-color: #444;
+  border: 2px solid white;
+  text-align: left; /* Текст выравнивается по левому краю */
+  box-sizing: border-box; /* Убедимся, что padding не влияет на ширину */
+  display: flex; /* Используем flex для размещения изображения и текста */
+  align-items: center; /* Центрируем изображение по вертикали */
+}
+
+.enter-transaction-edit-container-left {
+  background-color: #add8e6; /* Светло-синий фон */
+  border-radius: 20px 0 0 0; /* Закругление только левого верхнего угла */
+}
+
+.enter-transaction-edit-container-right {
+  background-color: #f08080; /* Светло-красный фон */
+  border-radius: 0 20px 0 0; /* Закругление только правого верхнего угла */
+}
+
+.enter-transaction-edit-container-left img, .enter-transaction-edit-container-right img {
+  width: 50px;
+  height: 50px;
+  margin-right: 3px; /* Отступ справа от изображения */
+}
+
+.enter-transaction-edit-text-container {
+  display: flex;
+  flex-direction: column; /* Размещаем текст вертикально */
+}
+
+.enter-transaction-edit-text-container .enter-transaction-edit-small-text {
+  font-size: 18px; /* Размер текста "Со счета" */
+  color: white; /* Белый цвет текста */
+}
+
+.enter-transaction-edit-text-container .enter-transaction-edit-large-text {
+  font-size: 26px; /* Размер текста "Карта" */
+  color: white; /* Белый цвет текста */
+}
+
+
+
+
+
+@keyframes slide-up {
+  0% {
+    transform: translateY(100%); /* Начало вне экрана */
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0); /* Окончание в своей позиции */
+    opacity: 1;
+  }
+}
+
+.enter-transaction-edit-modal-content {
+  position: fixed;
+  bottom: -100%; /* Start off-screen */
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #2c2c2c;
+  width: 100vw;
+  height: auto;
+  border-radius: 20px 20px 0 0;
+  z-index: 101;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+  opacity: 0; /* Initially transparent */
+  transition: bottom 0.3s ease, opacity 0.3s ease; /* Transition for bottom position and opacity */
+}
+
+.enter-transaction-edit-modal-content.visible {
+  bottom: 0; /* Moves to the visible part */
+  opacity: 1; /* Becomes fully visible */
+}
+
+.enter-transaction-edit-modal-content.hidden {
+  bottom: -100%; /* Moves back off-screen */
+  opacity: 0; /* Becomes transparent */
+}
+
+.enter-transaction-edit-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.5); /* Светлый белый фон с прозрачностью */
+  display: none;
+  z-index: 100;
+}
+
+.enter-transaction-edit-modal-overlay.visible {
+  display: block;
+}
+
+.blink-once {
+  animation: blink-animation 0.5s ease-in-out 1; /* Анимация выполняется 1 раз */
+}
+
+@keyframes blink-animation {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+

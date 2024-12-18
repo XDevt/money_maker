@@ -1,0 +1,656 @@
+.add-new-fin-account-container {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(18, 18, 18, 1);
+  overflow-y: auto; /* Включаем прокрутку */
+  scrollbar-width: none; /* Для Firefox */
+}
+
+.add-new-fin-account-container::-webkit-scrollbar {
+  display: none; /* Для Chrome, Safari и Edge */
+}
+
+.add-new-fin-account-top-left-image {
+  position: relative; /* Меняем на relative, чтобы изображение прокручивалось вместе с контентом */
+  top: 10px;
+  left: 10px;
+  width: 50px;
+  height: auto;
+  cursor: pointer;
+  margin-bottom: 10px; /* Чтобы было пространство между элементами, если нужно */
+}
+
+.add-new-fin-account-name-account {
+  width: calc(100% - 20px); /* Устанавливаем ширину с учетом отступов */
+  height: auto; /* Высота контейнера */
+  margin: 60px 10px 0; /* Отступы: сверху - 60px, по бокам - 10px */
+  display: flex;
+  flex-direction: column; /* Располагаем элементы вертикально */
+  justify-content: flex-start; /* Выравниваем элементы по верхней границе */
+  align-items: flex-start; /* Выравниваем элементы по левой стороне */
+  border-radius: 15px; /* Закругленные углы */
+  padding: 10px; /* Внутренние отступы */
+  box-sizing: border-box; /* Учитываем отступы и обводку в ширине */
+}
+
+.add-new-fin-account-account-name {
+  color: white; /* Цвет текста */
+  font-size: 18px; /* Размер текста */
+  margin-bottom: 5px; /* Отступ снизу для текстового поля */
+  margin-top: 5px;
+  margin-left: 5px;
+  text-align: left; /* Выравниваем текст по левому краю */
+  width: 100%; /* Убедимся, что текст занимает всю ширину контейнера */
+}
+
+.add-new-fin-account-input-account-name {
+  width: 100%; /* Поле ввода занимает всю ширину контейнера */
+  height: auto; /* Высота поля */
+  padding: 10px; /* Внутренний отступ */
+  background-color: rgba(28, 28, 30, 1); /* Темный фон */
+  color: white; /* Цвет текста */
+  border: 1px solid rgba(28, 28, 30, 1); /* Обводка */
+  border-radius: 10px; /* Закругление краев */
+  font-size: 16px; /* Размер текста */
+  box-sizing: border-box; /* Учитываем отступы и обводку в ширине */
+}
+
+.add-new-fin-account-account-type {
+  width: calc(100% - 20px);
+  margin-left: 10px;
+  border-radius: 15px;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.add-new-fin-account-account-type-header {
+  color: white;
+  font-size: 18px;
+  margin-bottom: 10px;
+  margin-left: 5px;
+}
+
+.add-new-fin-account-account-type-option {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+  width: 100%;
+  padding: 10px; /* Добавляем внутренние отступы для фона */
+  border: 2px solid rgba(28, 28, 30, 1); /* Обводка по умолчанию */
+  border-radius: 10px; /* Закругляем углы */
+  background-color: transparent; /* Прозрачный фон по умолчанию */
+  transition: background-color 0.3s ease, color 0.3s ease; /* Плавный переход */
+  cursor: pointer;
+}
+
+.add-new-fin-account-account-type-option.active {
+  background-color: rgba(28, 28, 30, 1); /* Фон для активного состояния */
+  color: white; /* Белый текст */
+}
+
+.add-new-fin-account-account-type-option.inactive {
+  background-color: transparent; /* Прозрачный фон */
+  color: rgba(84, 84, 84, 1); /* Тусклый текст */
+
+}
+
+.add-new-fin-account-account-type-icon {
+  width: 15px; /* Размер иконки */
+  height: auto;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+
+
+
+
+.add-new-fin-account-account-value {
+  width: calc(100% - 40px);
+  margin-top: 20px;
+  margin-left: 20px;
+  display: flex;
+  flex-direction: column; /* Текст над полями */
+  gap: 5px; /* Отступ между заголовком и контейнерами */
+}
+
+.add-new-fin-account-account-balance-label {
+  font-size: 16px;
+  color: white; /* Белый цвет текста */
+  margin-bottom: 5px;
+  font-weight: 500;
+}
+
+.add-new-fin-account-balance-wrapper {
+  display: flex;
+  align-items: stretch; /* Устанавливаем одинаковую высоту контейнеров */
+  gap: 0; /* Убираем промежутки между контейнерами */
+}
+
+.add-new-fin-account-balance-container {
+  flex: 1; /* Контейнер занимает доступное пространство */
+  padding: 10px;
+  background-color: rgba(28, 28, 30, 1);
+  border: 1px solid rgba(28, 28, 30, 1);
+  border-right: 1px solid rgba(84, 84, 84, 1);
+  border-radius: 10px 0 0 10px; /* Закругление только левых углов */
+  box-sizing: border-box;
+  cursor: pointer;
+  display: flex;
+  align-items: center; /* Центрирование текста по вертикали */
+}
+
+.add-new-fin-account-balance-text {
+  font-size: 16px;
+  color: rgba(84, 84, 84, 1); /* Цвет текста по умолчанию */
+}
+
+.add-new-fin-account-currency-container {
+  display: flex;
+  align-items: center; /* Центрирование содержимого по вертикали */
+  justify-content: center;
+  background-color: rgba(28, 28, 30, 1);
+  border: 1px solid rgba(28, 28, 30, 1);
+  border-radius: 0 10px 10px 0; /* Закругление только правых углов */
+  padding: 10px;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+
+.add-new-fin-account-currency-icon {
+  width: 20px;
+  height: 20px;
+  margin-right: 5px; /* Отступ между фото и текстом */
+}
+
+.add-new-fin-account-currency-text {
+  font-size: 16px;
+  color: white;
+}
+
+
+
+
+
+.add-new-fin-account-design {
+  border: 2px solid rgba(28, 28, 30, 1);
+  width: calc(100% - 40px);
+  margin-left: 20px;
+  border-radius: 15px;
+  padding: 10px;
+  box-sizing: border-box;
+  display: flex;
+  background: rgba(28, 28, 30, 1);
+  justify-content: space-between; /* Распределяем элементы */
+  align-items: center; /* Центрируем элементы по вертикали */
+  cursor: pointer;
+}
+
+.add-new-fin-account-design-header {
+  color: white;
+  font-size: 16px; /* Уменьшили размер текста */
+  font-weight: normal; /* Сделали текст обычным, не жирным */
+  margin-left: 5px;
+}
+
+.add-new-fin-account-icon-container {
+  width: 40px;
+  height: 40px;
+  background-color: rgba(28, 28, 30, 1); /* Цвет фона */
+  border-radius: 5px; /* Закругленные углы */
+  display: flex;
+  justify-content: center; /* Центрируем иконку по горизонтали */
+  align-items: center; /* Центрируем иконку по вертикали */
+}
+
+.add-new-fin-account-icon {
+  width: 20px; /* Размер иконки */
+  height: 20px;
+  object-fit: contain; /* Сохраняем пропорции иконки */
+}
+
+
+.add-new-fin-account-design-row {
+  display: flex;
+  justify-content: space-between; /* Размещаем прямоугольники по краям */
+  align-items: center;
+}
+
+.add-new-fin-account-design-box {
+  display: flex;
+  align-items: center; /* Выравниваем элементы по вертикали */
+  border: 2px solid #666666;
+  border-radius: 10px;
+  padding: 10px;
+  width: 45%; /* Делаем прямоугольники по ширине 45% */
+  height: 50px;
+  text-align: center;
+  justify-content: center; /* Центрируем содержимое по горизонтали */
+  align-items: center;
+}
+
+.design-icon {
+  width: 40px;
+  height: 40px;
+  transform: translateX(+10px)
+}
+
+.design-text-left {
+  color: white;
+  font-size: 16px;
+  text-align: center;
+
+}
+
+.design-text {
+  color: white;
+  font-size: 16px;
+  text-align: center; /* Отступ слева */
+}
+
+.add-new-fin-account-design-box-left {
+  margin-right: 10px; /* Отступ между левым и правым прямоугольником */
+}
+
+.add-new-fin-account-consider-balance {
+  display: flex;
+  justify-content: space-between;
+  align-items: center; /* Выравнивание по вертикали */
+  background: rgba(28, 28, 30, 1);
+  border: 2px solid rgba(28, 28, 30, 1); /* Создаем обводку */
+  border-radius: 10px; /* Скругленные углы */
+  padding: 10px;
+  margin-top: 20px; /* Отступ сверху */
+  margin-left: 20px; /* Отступ слева */
+  width: calc(100% - 40px);
+  height: auto; /* Высота контейнера */
+}
+
+.add-new-fin-account-consider-balance-label {
+  color: white;
+  font-size: 16px;
+}
+
+.toggle-switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 25px;
+  margin-right: 5px;
+}
+
+/* Input (прячем ползунок) */
+.toggle-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* Ползунок */
+.slider {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  border-radius: 25px;
+  transition: .4s;
+}
+
+/* Круглый переключатель внутри */
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 19px;
+  width: 19px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  border-radius: 50%;
+  transition: .4s;
+}
+
+/* Когда тумблер активен */
+input:checked + .slider {
+  background-color: rgba(94, 115, 233, 100);
+}
+
+/* Перемещение переключателя в правое положение */
+input:checked + .slider:before {
+  transform: translateX(24px);
+}
+
+.add-new-fin-account-create-button-container {
+  display: flex;
+  justify-content: center; /* Центрируем кнопку по горизонтали */
+  align-items: center;
+
+}
+
+.add-new-fin-account-create-button {
+  background-color: rgba(94, 115, 233, 100);
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  padding: 15px 20px;
+  border: none;
+  border-radius: 50px; /* Закругленные края */
+  cursor: pointer;
+  width: calc(100% - 40px);
+  margin-top: 20px;
+  transition: background-color 0.3s;
+}
+
+.add-new-fin-account-create-button:hover {
+  background-color: rgba(65, 91, 233, 100); /* Изменение цвета при наведении */
+}
+
+.add-new-saving-account-additional-saving-container {
+  border: 2px solid #666666; /* Создаем белую обводку */
+  width: 90%; /* Устанавливаем ширину контейнера */
+  height: auto; /* Высота контейнера по содержимому */
+  margin-top: 20px; /* Отступ сверху между контейнерами */
+  margin-left: 20px; /* Добавляем отступ слева */
+  display: flex;
+  justify-content: space-between; /* Размещаем элементы по краям */
+  align-items: center; /* Выравниваем содержимое по центру */
+  border-radius: 15px;
+  padding: 10px;
+  box-sizing: border-box; /* Учитываем отступы и обводку в ширине */
+}
+
+.add-new-saving-account-account-target-amount {
+  color: green;
+  font-size: 24px;
+  margin-right: 10px; /* Отступ справа для суммы */
+}
+
+.add-new-saving-account-account-target-label {
+  color: white;
+  font-size: 20px;
+  margin-left: 5px; /* Отступ слева для текста */
+  font-weight: bold;
+}
+
+
+
+
+
+
+.add-new-fin-account-modal-text-container {
+display: flex; /* Добавляем flex для корректного центрирования */
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  white-space: nowrap;
+  overflow: hidden;
+  border: 1px solid #1C1C1E; /* Создаем белую обводку */
+  height: 50px;
+  border-radius: 15px;
+  margin: 10px 10px 5px 10px;
+}
+
+.add-new-fin-account-modal-text {
+  font-size: 26px;
+  color: white; /* Белый цвет текста */
+  margin-left: 10px;
+}
+
+.add-new-fin-account-grid-container {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr); /* Первые два ряда по 5 колонок */
+  grid-gap: 10px;
+  padding: 10px;
+}
+
+.add-new-fin-account-grid-item {
+  background-color: rgba(28, 28, 30, 100);
+  border: 2px solid rgba(28, 28, 30, 100);
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.5);
+  color: white;
+  font-size: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.add-new-fin-account-grid-item-grey {
+  background-color: rgba(28, 28, 30, 100);
+  border: 2px solid rgba(28, 28, 30, 100);
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.5);
+  color: #7A8899;
+  font-size: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.add-new-fin-account-grid-item-tall-item {
+  background-color: rgba(28, 28, 30, 100);
+  border: 2px solid rgba(28, 28, 30, 100);
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.5);
+  color: white;
+  font-size: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+  border-radius: 10px;
+  cursor: pointer;
+  grid-column: 5; /* Кнопка выровнена по правому краю */
+  grid-row: span 3; /* Кнопка занимает два ряда */
+  height: auto; /* Высота кнопки автоматически подстраивается под 2 ряда */
+}
+
+@keyframes slide-up {
+  0% {
+    transform: translateY(100%); /* Начало вне экрана */
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0); /* Окончание в своей позиции */
+    opacity: 1;
+  }
+}
+
+.add-new-fin-account-modal-content {
+  position: fixed;
+  bottom: -100%; /* Start off-screen */
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(18, 18, 18, 100);
+  width: 100vw;
+  height: auto;
+  border-radius: 20px 20px 0 0;
+  z-index: 101;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+  opacity: 0; /* Initially transparent */
+  transition: bottom 0.3s ease, opacity 0.3s ease; /* Transition for bottom position and opacity */
+}
+
+.add-new-fin-account-modal-content.visible {
+  bottom: 0; /* Moves to the visible part */
+  opacity: 1; /* Becomes fully visible */
+}
+
+.add-new-fin-account-modal-content.hidden {
+  bottom: -100%; /* Moves back off-screen */
+  opacity: 0; /* Becomes transparent */
+}
+
+.add-new-fin-account-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(28, 28, 28, 0.5); /* Светлый белый фон с прозрачностью */
+  display: none;
+  z-index: 100;
+}
+
+.add-new-fin-account-modal-overlay.visible {
+  display: block;
+}
+
+.blink-once {
+  animation: blink-animation 0.5s ease-in-out 1; /* Анимация выполняется 1 раз */
+}
+
+@keyframes blink-animation {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+
+.add-new-fin-account-header {
+  position: fixed; /* Фиксируем контейнер сверху */
+  top: 0;
+  left: 0;
+  width: 100%; /* Растягиваем на всю ширину экрана */
+  height: 60px; /* Высота контейнера */
+  background-color: rgba(28, 28, 30, 1); /* Цвет фона */
+  display: flex;
+  align-items: center; /* Выравниваем по вертикали */
+  justify-content: space-between; /* Оставляем место между фото и текстом */
+  padding: 0 20px; /* Отступы слева и справа */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5); /* Тень под контейнером */
+  z-index: 100; /* Поднимаем над другим контентом */
+  border-radius: 0 0 15px 15px; /* Закругляем только нижние углы */
+}
+
+.add-new-fin-account-close-icon {
+  width: 24px; /* Ширина иконки */
+  height: 24px; /* Высота иконки */
+  cursor: pointer; /* Курсор при наведении */
+}
+
+.add-new-fin-account-title {
+  font-size: 18px; /* Размер шрифта */
+  color: white; /* Белый цвет текста */
+  text-align: center; /* Центрируем текст */
+  flex: 1; /* Растягиваем текст по доступному пространству */
+   /* Смещаем текст для учета ширины иконки */
+}
+
+
+
+
+
+.add-new-debt-type-container {
+  width: calc(100% -40px);
+  margin: 20px 20px;
+  border-radius: 15px;
+  box-sizing: border-box;
+}
+
+.add-new-debt-type-label {
+  color: white;
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.add-new-debt-type-options {
+  display: flex;
+  justify-content: space-between; /* Распределяем контейнеры равномерно */
+  gap: 10px; /* Отступ между контейнерами */
+}
+
+.add-new-debt-type-option {
+  flex: 1; /* Равная ширина для контейнеров */
+  display: flex;
+  align-items: center; /* Выравнивание фото и текста по вертикали */
+  padding: 10px;
+  border-radius: 15px;
+  margin-top: 10px;
+  border: 1px solid rgba(28, 28, 30, 1);
+  background-color: transparent;
+  cursor: pointer;
+  box-sizing: border-box;
+  transition: all 0.3s ease;
+}
+
+.add-new-debt-type-option.active {
+  background-color: rgba(28, 28, 30, 1);
+  border-color: rgba(28, 28, 30, 1);
+}
+
+.add-new-debt-type-icon {
+  width: 25px; /* Размер фото */
+  height: 25px;
+  margin-right: 10px; /* Отступ между фото и текстом */
+}
+
+.add-new-debt-type-text {
+  color: rgba(84, 84, 84, 1);
+  font-size: 16px;
+  flex: 1; /* Текст занимает оставшееся место */
+  white-space: nowrap; /* Запрещаем перенос текста */
+}
+
+.add-new-debt-type-option.active .add-new-debt-type-text {
+  color: white; /* Цвет текста для активного элемента */
+}
+
+
+
+
+
+.add-new-debt-options-container {
+  width: calc(100% - 40px);
+  margin: 20px 20px;
+  padding: 10px;
+  border-radius: 15px;
+  background-color: rgba(28, 28, 30, 1);
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /* Расстояние между внутренними контейнерами */
+}
+
+.add-new-debt-balance-container,
+.add-new-debt-operation-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center; /* Выровнять элементы по верхнему краю */
+}
+
+.add-new-debt-balance-label,
+.add-new-debt-operation-title {
+  color: white;
+  font-size: 16px;
+}
+
+.add-new-debt-operation-subtitle {
+  color: rgba(84, 84, 84, 1);
+  font-size: 12px;
+  margin-top: 5px;
+  white-space: normal; /* Разрешаем перенос текста */
+  overflow-wrap: break-word; /* Переносим длинные слова */
+  line-height: 1.2; /* Добавляем расстояние между строками для читаемости */
+  width: 80%;
+}
+
+.add-new-debt-operation-texts {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  max-width: calc(100% - 70px); /* Ограничиваем ширину текста, оставляя место для ползунка */
+  margin-right: 10px; /* Отступ от ползунка */
+}
